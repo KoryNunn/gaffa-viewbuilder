@@ -1,8 +1,8 @@
 {
-  "name": "gaffa-pagebuilder",
+  "name": "gaffa-viewbuilder",
   "version": "0.0.2",
   "description": "",
-  "main": "pagebuilder.js",
+  "main": "viewBuilder.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
