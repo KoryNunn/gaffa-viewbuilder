@@ -1,4 +1,5 @@
 var statham = require('statham'),
+    path = require('path'),
     addEventListener = function(){},
     originalWindow = typeof window !== 'undefined' ? window : undefined,
     fakeWindow = {
@@ -13,7 +14,7 @@ function buildPage(viewPath){
     GLOBAL.window = fakeWindow;
     GLOBAL.document = fakeWindow.document;
 
-    var view = require(viewPath)();
+    var view = require(path.join(process.cwd(), viewPath))();
 
     console.log('built ' + viewPath.split('/').pop());
 
