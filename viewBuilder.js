@@ -1,28 +1,29 @@
-var statham = require('statham'),
-    path = require('path'),
-    addEventListener = function(){},
-    originalWindow = GLOBAL.window,
-    originalDocument = GLOBAL.document,
-    fakeWindow = {
-        addEventListener: addEventListener,
-        document: {
-            addEventListener: addEventListener
-        }
-    };
+var browserify = require('browserify'),
+    statham = require('statham'),
+    buildView = require('./buildView');
 
-function buildPage(viewPath){
+function buildViews(viewPaths, callback){
 
-    GLOBAL.window = fakeWindow;
-    GLOBAL.document = fakeWindow.document;
+    var b = browserify();
 
-    var view = require(path.join(process.cwd(), viewPath))();
+    viewPaths.forEach(function(viewPath) {
+        b.add(viewPath);
+    });
 
-    console.log('built ' + viewPath.split('/').pop());
+    b.bundle({}, function(error, data){
 
-    GLOBAL.window = originalWindow;
-    GLOBAL.document = originalDocument;
+        var pageIds = /\[(.*?)]\)$/g.exec(data)[1].split(','),
+            exports = buildView(data);
 
-    return statham.stringify(view);
+        var views = pageIds.map(function(id, index){
+            return {
+                sourcePath: viewPaths[index],
+                result: statham.stringify(exports(id)())
+            };
+        });
+
+        callback(views);
+    });
 }
 
-module.exports = buildPage;
+module.exports = buildViews;
