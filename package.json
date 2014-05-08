@@ -9,7 +9,7 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "statham": "~1.0.0",
-    "browserify": "x.x.x"
+    "statham": "^1.0.0",
+    "browserify": "^3.46.0"
   }
 }
