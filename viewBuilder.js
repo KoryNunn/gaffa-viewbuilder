@@ -11,6 +11,9 @@ function buildViews(viewPaths, callback){
     });
 
     b.bundle({}, function(error, data){
+        if(error){
+            return callback(error);
+        }
 
         var pageIds = /\[(.*?)]\)$/g.exec(data)[1].split(','),
             exports = buildView(data);
@@ -22,7 +25,7 @@ function buildViews(viewPaths, callback){
             };
         });
 
-        callback(views);
+        callback(null, views);
     });
 }
 
