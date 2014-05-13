@@ -12,6 +12,6 @@
     "statham": "^1.0.0"
   },
   "peerDependencies": {
-    "browserify": "x.x.x"
+    "browserify": "^4.1.0"
   }
 }
