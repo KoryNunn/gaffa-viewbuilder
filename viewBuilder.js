@@ -10,7 +10,7 @@ function buildViews(viewPaths, callback){
         b.add(viewPath);
     });
 
-    b.bundle({}, function(error, data){
+    b.bundle(function(error, data){
         if(error){
             return callback(error);
         }
