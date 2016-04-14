@@ -1,6 +1,6 @@
 {
   "name": "gaffa-viewbuilder",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "## What",
   "main": "viewBuilder.js",
   "scripts": {
