@@ -1,7 +1,7 @@
 {
   "name": "gaffa-viewbuilder",
   "version": "3.0.0",
-  "description": "",
+  "description": "## What",
   "main": "viewBuilder.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +13,14 @@
   },
   "peerDependencies": {
     "browserify": "*"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoryNunn/gaffa-pagebuilder.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/KoryNunn/gaffa-pagebuilder/issues"
+  },
+  "homepage": "https://github.com/KoryNunn/gaffa-pagebuilder#readme"
 }
